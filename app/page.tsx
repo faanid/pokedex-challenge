@@ -50,11 +50,13 @@ function PokemonGrid() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-blue-50 to-white">
       <header className="bg-primary text-primary-foreground py-6 shadow-lg">
-        <div className="container mx-auto px-4">
+     
           <h1 className="text-4xl font-bold text-center mb-4">Pokédex</h1>
-          <SearchBar value={state.searchTerm} onChange={handleSearchChange} placeholder="Search Pokémon..." />
-        </div>
+    
       </header>
+         <div className="container mx-auto pt-4">
+       <SearchBar value={state.searchTerm} onChange={handleSearchChange} placeholder="Search Pokémon..." />
+           </div>
           {!state.searchTerm && (
               <Pagination
                 currentPage={state.currentPage}
