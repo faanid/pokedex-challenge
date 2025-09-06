@@ -49,15 +49,22 @@ function PokemonGrid() {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-blue-50 to-white">
-      {/* Header */}
       <header className="bg-primary text-primary-foreground py-6 shadow-lg">
         <div className="container mx-auto px-4">
           <h1 className="text-4xl font-bold text-center mb-4">Pokédex</h1>
           <SearchBar value={state.searchTerm} onChange={handleSearchChange} placeholder="Search Pokémon..." />
         </div>
       </header>
+          {!state.searchTerm && (
+              <Pagination
+                currentPage={state.currentPage}
+                onPrevious={handlePreviousPage}
+                onNext={handleNextPage}
+                hasPrevious={state.currentPage > 1}
+                hasNext={state.pokemonList.length === 20} 
+              />
+            )}
 
-      {/* Main Content */}
       <main className="container mx-auto px-4 py-8">
         {state.isLoading ? (
           <div className="flex justify-center items-center min-h-[400px]">
@@ -65,35 +72,23 @@ function PokemonGrid() {
           </div>
         ) : (
           <>
-            {/* Pokemon Grid */}
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6 mb-8">
               {state.filteredPokemon.map((pokemon) => (
                 <PokemonCard key={pokemon.id} pokemon={pokemon} onClick={handlePokemonClick} />
               ))}
             </div>
 
-            {/* Show message if no Pokemon found */}
             {state.filteredPokemon.length === 0 && !state.isLoading && (
               <div className="text-center py-12">
                 <p className="text-lg text-muted-foreground">No Pokémon found matching "{state.searchTerm}"</p>
               </div>
             )}
 
-            {/* Pagination - only show when not searching */}
-            {!state.searchTerm && (
-              <Pagination
-                currentPage={state.currentPage}
-                onPrevious={handlePreviousPage}
-                onNext={handleNextPage}
-                hasPrevious={state.currentPage > 1}
-                hasNext={state.pokemonList.length === 20} // Assuming full page means more data available
-              />
-            )}
+        
           </>
         )}
       </main>
 
-      {/* Pokemon Details Modal */}
       <PokemonModal pokemon={state.selectedPokemon} isOpen={!!state.selectedPokemon} onClose={clearSelectedPokemon} />
     </div>
   )
