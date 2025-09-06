@@ -25,7 +25,6 @@ export function usePokemonApi() {
 
         const data: PokemonListResponse = await response.json()
 
-        // Fetch detailed data for each Pokemon
         const pokemonDetails = await Promise.all(
           data.results.map(async (pokemon) => {
             const detailResponse = await fetch(pokemon.url)

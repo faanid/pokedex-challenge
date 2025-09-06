@@ -3,12 +3,12 @@
 import { useEffect } from "react"
 import { PokemonProvider, usePokemon } from "@/contexts/PokemonContext"
 import { usePokemonApi } from "@/hooks/usePokemonApi"
-import { PokemonCard } from "@/components/PokemonCard"
-import { PokemonModal } from "@/components/PokemonModal"
-import { SearchBar } from "@/components/SearchBar"
+import { PokemonCard } from "@/components/features/pokemon/PokemonCard"
+import { PokemonModal } from "@/components/features/pokemon/PokemonModal"
+import { SearchBar } from "@/components/features/pokemon/SearchBar"
 import { Pagination } from "@/components/Pagination"
-import { LoadingSpinner } from "@/components/LoadingSpinner"
-import { Alert, AlertDescription } from "@/components/ui/alert"
+import { LoadingSpinner } from "@/components/shared/LoadingSpinner"
+import { Alert, AlertDescription } from "@/components/ui/feedback/alert"
 import type { Pokemon } from "@/types/pokemon"
 
 function PokemonGrid() {

@@ -1,6 +1,6 @@
 "use client"
-import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog"
-import { Badge } from "@/components/ui/badge"
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/feedback/dialog"
+import { Badge } from "@/components/ui/data-display/badge"
 import type { Pokemon } from "@/types/pokemon"
 import { cn } from "@/lib/utils"
 
@@ -56,7 +56,6 @@ export function PokemonModal({ pokemon, isOpen, onClose }: PokemonModalProps) {
         </DialogHeader>
 
         <div className="space-y-6">
-          {/* Pokemon Image */}
           <div className="text-center">
             <img
               src={pokemon.sprites.other["official-artwork"].front_default || pokemon.sprites.front_default}
@@ -65,7 +64,6 @@ export function PokemonModal({ pokemon, isOpen, onClose }: PokemonModalProps) {
             />
           </div>
 
-          {/* Types */}
           <div>
             <h4 className="font-semibold mb-2 text-foreground">Type</h4>
             <div className="flex gap-2">
@@ -80,7 +78,6 @@ export function PokemonModal({ pokemon, isOpen, onClose }: PokemonModalProps) {
             </div>
           </div>
 
-          {/* Physical Stats */}
           <div className="grid grid-cols-2 gap-4">
             <div>
               <h4 className="font-semibold text-foreground">Height</h4>
@@ -92,7 +89,6 @@ export function PokemonModal({ pokemon, isOpen, onClose }: PokemonModalProps) {
             </div>
           </div>
 
-          {/* Abilities */}
           <div>
             <h4 className="font-semibold mb-2 text-foreground">Abilities</h4>
             <div className="space-y-1">

@@ -1,8 +1,8 @@
 "use client"
 
 import React from "react"
-import { Card, CardContent } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
+import { Card, CardContent } from "@/components/ui/layout/card"
+import { Badge } from "@/components/ui/data-display/badge"
 import type { Pokemon } from "@/types/pokemon"
 import { cn } from "@/lib/utils"
 

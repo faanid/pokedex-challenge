@@ -52,7 +52,6 @@ const PokemonContext = createContext<{
 export function PokemonProvider({ children }: { children: React.ReactNode }) {
   const [state, dispatch] = useReducer(pokemonReducer, initialState)
 
-  // Filter Pokemon whenever search term changes
   useEffect(() => {
     dispatch({ type: "FILTER_POKEMON" })
   }, [state.searchTerm, state.pokemonList])
